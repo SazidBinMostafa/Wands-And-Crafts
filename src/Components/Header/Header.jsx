@@ -1,7 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 function Header() {
+
+    const { user, loading, logOut } = useAuth();
 
     const NavLinks = () => {
 
@@ -13,6 +16,9 @@ function Header() {
         </>
     }
 
+    if(loading){
+        <span className="loading loading-dots loading-lg"></span>
+    }
     return <>
         <div className="navbar">
             <div className="navbar-start">
@@ -37,7 +43,7 @@ function Header() {
                         <NavLinks></NavLinks>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl text-red-500">Wands & Crafts</a>
+                <Link to='/' className="btn btn-ghost text-3xl text-red-500 mystery-quest-regular">Wands & Crafts</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -76,7 +82,9 @@ function Header() {
                     </div>
                 </div>
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                   {user ? 
+                   <>
+                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
@@ -86,15 +94,13 @@ function Header() {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content  bg-[#121212] rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li><Link>Profile</Link></li>
+                        <li><Link>Settings</Link></li>
+                        <li><button onClick={()=>logOut()}>Logout</button></li>
                     </ul>
+                   </> : 
+                   <><Link to='/login'>Login</Link>
+                   </>}
                 </div>
             </div>
         </div>
