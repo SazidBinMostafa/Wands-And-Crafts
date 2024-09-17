@@ -4,16 +4,17 @@ import { NavLink } from "react-router-dom";
 function Header() {
 
     const NavLinks = () => {
+
         return <>
-            <li><NavLink className={({ isActive }) => isActive ? "border-2 border-white" : "hover:border-b-2 hover:border-neutral-content"} to={'/'}>Home</NavLink></li>
-            <li><NavLink className={({ isActive }) => isActive ? "border-2 border-white" : "hover:border-b-2 hover:border-neutral-content"} to={'/shop'}>Shop</NavLink></li>
-            <li><NavLink className={({ isActive }) => isActive ? "border-2 border-white" : "hover:border-b-2 hover:border-neutral-content"} to={'/about'}>About</NavLink></li>
-            <li><NavLink className={({ isActive }) => isActive ? "border-2 border-white" : "hover:border-b-2 hover:border-neutral-content"} to={'/contact-us'}>Contact Us</NavLink></li>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='/shop'>Shop</NavLink></li>
+            <li><NavLink to='/about'>About</NavLink></li>
+            <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
         </>
     }
 
     return <>
-        <div className="navbar  bg-neutral text-neutral-content">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,11 +33,11 @@ function Header() {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-neutral rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-[#121212] rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <NavLinks></NavLinks>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-3xl text-red-600">Wands & Crafts</a>
+                <a className="btn btn-ghost text-xl text-red-500">Wands & Crafts</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -64,9 +65,9 @@ function Header() {
                     </div>
                     <div
                         tabIndex={0}
-                        className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
+                        className="card card-compact dropdown-content bg-[#121212] z-[1] mt-3 w-52 shadow">
                         <div className="card-body">
-                            <span className="text-lg font-bold">8 Items</span>
+                            <span className="text-lg">8 Items</span>
                             <span className="text-info">Subtotal: $999</span>
                             <div className="card-actions">
                                 <button className="btn btn-primary btn-block">View cart</button>
@@ -84,7 +85,7 @@ function Header() {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content  bg-[#121212] rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li>
                             <a className="justify-between">
                                 Profile
